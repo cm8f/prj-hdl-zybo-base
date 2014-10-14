@@ -1,0 +1,67 @@
+create new project
+click through
+add constraints (digilent zybo website) XDC
+choose xc7z010clg400-1 as device
+finish
+set project language to vhdl
+
+create block design
+add ip zynq
+re customize
+import xps settings (select xml from zybo website)
+activate irq
+enable spi1 at mio 10..15
+
+run block automation assistant
+connect m axi gp0 aclk to fclk_clk0
+make iic_0 external
+
+add axi gpio ip (axi_btn) 
+re customize 
+enable inerrupts 
+width = 4 
+all inputs
+
+add axi gpio ip (axi_led)
+re customize 
+width = 4 
+all outputs
+
+
+add constant
+re customize 
+value = 1
+
+connect constant dout to sdio0_wp
+make iic_0 external
+run connection automation
+connect axi slaves to m_axi_gp0
+connect irq (btn to irq_f2p)
+make gpio external
+
+regenerate block design
+validate block design
+
+// picture blockdesign
+
+edit *.xdc
+set_property PACKAGE_PIN R18 [get_ports {btn_tri_i[0]}] etc...
+save
+rightclick bd 
+create hdl wrapper
+generate bitstream
+
+export to sdk (include bitsream)
+launch sdk
+create bsd
+create hello world
+create memtest
+create peritest
+
+run configuration 
+stdio to console baud 115200
+programm fpga
+run
+have fun
+
+
