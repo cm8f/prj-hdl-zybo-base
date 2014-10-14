@@ -1,4 +1,8 @@
 zybo
 ====
+zybo design from scratch
 
-http://funwithzynq.blogspot.de/
+more detail comming soon on
+
+http://funwithzynq.wordpress.com
+
