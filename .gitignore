@@ -3,3 +3,5 @@
 **/*.str
 .Xil
 **/.metadata/**
+SDK/webtalk/**
+SDK/RemoteSystemsTempFiles/**
