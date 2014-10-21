@@ -42,6 +42,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common-41} -limit 4294967295
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 set_msg_config -id {Synth 8-256} -limit 10000
@@ -52,24 +53,28 @@ set rc [catch {
   create_msg_db init_design.pb
   set_param gui.test TreeTableDev
   set_property design_mode GateLvl [current_fileset]
-  set_property webtalk.parent_dir /home/phil/github/zybo/base_system/base_system.cache/wt [current_project]
-  set_property parent.project_dir /home/phil/github/zybo/base_system [current_project]
-  add_files -quiet /home/phil/github/zybo/base_system/base_system.runs/synth_1/base_system_wrapper.dcp
-  read_xdc -ref base_system_processing_system7_0_0 -cells inst /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_processing_system7_0_0/base_system_processing_system7_0_0.xdc
-  set_property processing_order EARLY [get_files /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_processing_system7_0_0/base_system_processing_system7_0_0.xdc]
-  read_xdc -ref base_system_axi_gpio_0_0 -cells U0 /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_0/base_system_axi_gpio_0_0.xdc
-  set_property processing_order EARLY [get_files /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_0/base_system_axi_gpio_0_0.xdc]
-  read_xdc -prop_thru_buffers -ref base_system_axi_gpio_0_0 -cells U0 /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_0/base_system_axi_gpio_0_0_board.xdc
-  set_property processing_order EARLY [get_files /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_0/base_system_axi_gpio_0_0_board.xdc]
-  read_xdc -ref base_system_axi_gpio_0_1 -cells U0 /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_1/base_system_axi_gpio_0_1.xdc
-  set_property processing_order EARLY [get_files /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_1/base_system_axi_gpio_0_1.xdc]
-  read_xdc -prop_thru_buffers -ref base_system_axi_gpio_0_1 -cells U0 /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_1/base_system_axi_gpio_0_1_board.xdc
-  set_property processing_order EARLY [get_files /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_1/base_system_axi_gpio_0_1_board.xdc]
-  read_xdc -ref base_system_rst_processing_system7_0_100M_0 /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_rst_processing_system7_0_100M_0/base_system_rst_processing_system7_0_100M_0.xdc
-  set_property processing_order EARLY [get_files /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_rst_processing_system7_0_100M_0/base_system_rst_processing_system7_0_100M_0.xdc]
-  read_xdc -prop_thru_buffers -ref base_system_rst_processing_system7_0_100M_0 /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_rst_processing_system7_0_100M_0/base_system_rst_processing_system7_0_100M_0_board.xdc
-  set_property processing_order EARLY [get_files /home/phil/github/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_rst_processing_system7_0_100M_0/base_system_rst_processing_system7_0_100M_0_board.xdc]
-  read_xdc /home/phil/github/zybo/base_system/base_system.srcs/constrs_1/imports/library/ZYBO_Master.xdc
+  set_property webtalk.parent_dir /home/phil/git/funwithzynq/zybo/base_system/base_system.cache/wt [current_project]
+  set_property parent.project_dir /home/phil/git/funwithzynq/zybo/base_system [current_project]
+  add_files -quiet /home/phil/git/funwithzynq/zybo/base_system/base_system.runs/synth_1/base_system_wrapper.dcp
+  read_xdc -ref base_system_processing_system7_0_0 -cells inst /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_processing_system7_0_0/base_system_processing_system7_0_0.xdc
+  set_property processing_order EARLY [get_files /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_processing_system7_0_0/base_system_processing_system7_0_0.xdc]
+  read_xdc -ref base_system_axi_gpio_0_0 -cells U0 /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_0/base_system_axi_gpio_0_0.xdc
+  set_property processing_order EARLY [get_files /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_0/base_system_axi_gpio_0_0.xdc]
+  read_xdc -prop_thru_buffers -ref base_system_axi_gpio_0_0 -cells U0 /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_0/base_system_axi_gpio_0_0_board.xdc
+  set_property processing_order EARLY [get_files /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_0/base_system_axi_gpio_0_0_board.xdc]
+  read_xdc -ref base_system_axi_gpio_0_1 -cells U0 /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_1/base_system_axi_gpio_0_1.xdc
+  set_property processing_order EARLY [get_files /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_1/base_system_axi_gpio_0_1.xdc]
+  read_xdc -prop_thru_buffers -ref base_system_axi_gpio_0_1 -cells U0 /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_1/base_system_axi_gpio_0_1_board.xdc
+  set_property processing_order EARLY [get_files /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_gpio_0_1/base_system_axi_gpio_0_1_board.xdc]
+  read_xdc -ref base_system_rst_processing_system7_0_100M_0 /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_rst_processing_system7_0_100M_0/base_system_rst_processing_system7_0_100M_0.xdc
+  set_property processing_order EARLY [get_files /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_rst_processing_system7_0_100M_0/base_system_rst_processing_system7_0_100M_0.xdc]
+  read_xdc -prop_thru_buffers -ref base_system_rst_processing_system7_0_100M_0 /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_rst_processing_system7_0_100M_0/base_system_rst_processing_system7_0_100M_0_board.xdc
+  set_property processing_order EARLY [get_files /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_rst_processing_system7_0_100M_0/base_system_rst_processing_system7_0_100M_0_board.xdc]
+  read_xdc -ref base_system_axi_timer_0_0 /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_timer_0_0/base_system_axi_timer_0_0.xdc
+  set_property processing_order EARLY [get_files /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_timer_0_0/base_system_axi_timer_0_0.xdc]
+  read_xdc -prop_thru_buffers -ref base_system_axi_iic_0_0 /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_iic_0_0/base_system_axi_iic_0_0_board.xdc
+  set_property processing_order EARLY [get_files /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/sources_1/bd/base_system/ip/base_system_axi_iic_0_0/base_system_axi_iic_0_0_board.xdc]
+  read_xdc /home/phil/git/funwithzynq/zybo/base_system/base_system.srcs/constrs_1/imports/library/ZYBO_Master.xdc
   link_design -top base_system_wrapper -part xc7z010clg400-1
   close_msg_db -file init_design.pb
 } RESULT]
@@ -84,7 +89,7 @@ start_step opt_design
 set rc [catch {
   create_msg_db opt_design.pb
   catch {write_debug_probes -quiet -force debug_nets}
-  catch {update_ip_catalog -quiet -current_ip_cache {/home/phil/github/zybo/base_system/base_system.cache} }
+  catch {update_ip_catalog -quiet -current_ip_cache {/home/phil/git/funwithzynq/zybo/base_system/base_system.cache} }
   opt_design 
   write_checkpoint -force base_system_wrapper_opt.dcp
   close_msg_db -file opt_design.pb
@@ -136,8 +141,8 @@ start_step write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
   write_bitstream -force base_system_wrapper.bit 
-  if { [file exists /home/phil/github/zybo/base_system/base_system.runs/synth_1/base_system_wrapper.hwdef] } {
-    catch { write_sysdef -hwdef /home/phil/github/zybo/base_system/base_system.runs/synth_1/base_system_wrapper.hwdef -bitfile base_system_wrapper.bit -meminfo base_system_wrapper_bd.bmm -file base_system_wrapper.sysdef }
+  if { [file exists /home/phil/git/funwithzynq/zybo/base_system/base_system.runs/synth_1/base_system_wrapper.hwdef] } {
+    catch { write_sysdef -hwdef /home/phil/git/funwithzynq/zybo/base_system/base_system.runs/synth_1/base_system_wrapper.hwdef -bitfile base_system_wrapper.bit -meminfo base_system_wrapper_bd.bmm -file base_system_wrapper.sysdef }
   }
   close_msg_db -file write_bitstream.pb
 } RESULT]

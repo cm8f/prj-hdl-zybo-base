@@ -1,35 +1,51 @@
 {
    guistr: "# # String gsaved with Nlview version 6.4-r1  2014-02-28 bk=1.3047 VDI=34 GEI=35 GUI=JA:1.7
 #  -string -flagsOSRD
-preplace port DDR -pg 1 -y 330 -defaultsOSRD
-preplace port BTN -pg 1 -y 90 -defaultsOSRD
-preplace port LED -pg 1 -y 250 -defaultsOSRD
-preplace port IIC_0 -pg 1 -y 370 -defaultsOSRD
-preplace port FIXED_IO -pg 1 -y 350 -defaultsOSRD
-preplace inst rst_processing_system7_0_100M -pg 1 -lvl 1 -y 170 -defaultsOSRD
-preplace inst axi_led -pg 1 -lvl 3 -y 250 -defaultsOSRD
-preplace inst axi_btn -pg 1 -lvl 3 -y 100 -defaultsOSRD
-preplace inst gnd -pg 1 -lvl 3 -y 460 -defaultsOSRD
-preplace inst processing_system7_0_axi_periph -pg 1 -lvl 2 -y 170 -defaultsOSRD
-preplace inst processing_system7_0 -pg 1 -lvl 1 -y 470 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 1 3 460 520 NJ 520 NJ
-preplace netloc processing_system7_0_axi_periph_M00_AXI 1 2 1 860
-preplace netloc gnd_dout 1 1 3 430 410 NJ 410 1090
-preplace netloc processing_system7_0_M_AXI_GP0 1 1 1 480
-preplace netloc axi_btn_ip2intc_irpt 1 0 4 20 80 NJ 20 NJ 180 1120
-preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 2 40 280 420
-preplace netloc button_GPIO 1 3 1 N
-preplace netloc processing_system7_0_IIC_0 1 1 3 440 540 NJ 540 NJ
-preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 1 2 490 10 850
-preplace netloc led_GPIO 1 3 1 N
-preplace netloc processing_system7_0_FIXED_IO 1 1 3 450 530 NJ 530 NJ
-preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 1 1 420
-preplace netloc processing_system7_0_FCLK_CLK0 1 0 3 30 270 470 30 840
-preplace netloc processing_system7_0_axi_periph_M01_AXI 1 2 1 830
-levelinfo -pg 1 0 230 660 980 1140
+preplace port DDR -pg 1 -y 650 -defaultsOSRD
+preplace port timer_generateout0 -pg 1 -y 350 -defaultsOSRD
+preplace port BTN -pg 1 -y 190 -defaultsOSRD
+preplace port timer_pwm0 -pg 1 -y 390 -defaultsOSRD
+preplace port LED -pg 1 -y 70 -defaultsOSRD
+preplace port IIC_0 -pg 1 -y 690 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 670 -defaultsOSRD
+preplace port spi3w -pg 1 -y 540 -defaultsOSRD
+preplace portBus spi3w -pg 1 -y 580 -defaultsOSRD
+preplace inst rst_processing_system7_0_100M -pg 1 -lvl 2 -y 410 -defaultsOSRD
+preplace inst axi_led -pg 1 -lvl 4 -y 70 -defaultsOSRD
+preplace inst axi_btn -pg 1 -lvl 4 -y 200 -defaultsOSRD
+preplace inst gnd -pg 1 -lvl 4 -y 780 -defaultsOSRD
+preplace inst xlconcat_0 -pg 1 -lvl 1 -y 660 -defaultsOSRD
+preplace inst axi_timer_0 -pg 1 -lvl 4 -y 380 -defaultsOSRD
+preplace inst axi_spi3ws -pg 1 -lvl 4 -y 560 -defaultsOSRD
+preplace inst processing_system7_0_axi_periph -pg 1 -lvl 3 -y 320 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 2 -y 730 -defaultsOSRD
+preplace netloc processing_system7_0_DDR 1 2 3 N 650 NJ 650 NJ
+preplace netloc processing_system7_0_axi_periph_M03_AXI 1 3 1 1010
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 3 1 1010
+preplace netloc axi_iic_0_iic2intc_irpt 1 0 5 20 560 NJ 560 NJ 560 NJ 490 1280
+preplace netloc gnd_dout 1 2 3 NJ 730 NJ 730 1280
+preplace netloc processing_system7_0_M_AXI_GP0 1 2 1 630
+preplace netloc axi_btn_ip2intc_irpt 1 0 5 30 140 NJ 140 NJ 140 NJ 280 1290
+preplace netloc axi_timer_0_pwm0 1 4 1 N
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 1 2 240 600 620
+preplace netloc button_GPIO 1 4 1 N
+preplace netloc processing_system7_0_IIC_0 1 2 3 N 690 NJ 690 NJ
+preplace netloc processing_system7_0_axi_periph_M02_AXI 1 3 1 N
+preplace netloc axi_timer_0_generateout0 1 4 1 N
+preplace netloc rst_processing_system7_0_100M_peripheral_aresetn 1 2 2 660 510 1040
+preplace netloc xlconcat_0_dout 1 1 1 220
+preplace netloc led_GPIO 1 4 1 N
+preplace netloc processing_system7_0_FIXED_IO 1 2 3 N 670 NJ 670 NJ
+preplace netloc axi_iic_0_IIC 1 4 1 N
+preplace netloc axi_iic_0_gpo 1 4 1 N
+preplace netloc rst_processing_system7_0_100M_interconnect_aresetn 1 2 1 640
+preplace netloc processing_system7_0_FCLK_CLK0 1 1 3 230 510 650 500 1030
+preplace netloc processing_system7_0_axi_periph_M01_AXI 1 3 1 1000
+preplace netloc axi_timer_0_interrupt 1 0 5 40 590 NJ 590 NJ 590 NJ 640 1290
+levelinfo -pg 1 0 130 430 830 1160 1310
 ",
 }
 {
-   da_axi4_cnt: "2",
+   da_axi4_cnt: "4",
    da_ps7_cnt: "1",
 }

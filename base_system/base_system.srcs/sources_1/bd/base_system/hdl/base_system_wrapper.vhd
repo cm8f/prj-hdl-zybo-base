@@ -1,8 +1,8 @@
 --Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:08:52 MDT 2014
---Date        : Tue Oct 14 22:49:27 2014
---Host        : Mars running 64-bit unknown
+--Tool Version: Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
+--Date        : Wed Oct 22 00:47:07 2014
+--Host        : saturn running 64-bit unknown
 --Command     : generate_target base_system_wrapper.bd
 --Design      : base_system_wrapper
 --Purpose     : IP block netlist
@@ -37,7 +37,12 @@ entity base_system_wrapper is
     btn_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
     iic_0_scl_io : inout STD_LOGIC;
     iic_0_sda_io : inout STD_LOGIC;
-    led_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 )
+    led_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
+    spi3w : out STD_LOGIC_VECTOR ( 0 to 0 );
+    spi3w_scl_io : inout STD_LOGIC;
+    spi3w_sda_io : inout STD_LOGIC;
+    timer_generateout0 : out STD_LOGIC;
+    timer_pwm0 : out STD_LOGIC
   );
 end base_system_wrapper;
 
@@ -72,7 +77,16 @@ architecture STRUCTURE of base_system_wrapper is
     IIC_0_scl_o : out STD_LOGIC;
     IIC_0_scl_t : out STD_LOGIC;
     LED_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
-    BTN_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 )
+    BTN_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
+    timer_pwm0 : out STD_LOGIC;
+    timer_generateout0 : out STD_LOGIC;
+    spi3w_scl_i : in STD_LOGIC;
+    spi3w_scl_o : out STD_LOGIC;
+    spi3w_scl_t : out STD_LOGIC;
+    spi3w_sda_i : in STD_LOGIC;
+    spi3w_sda_o : out STD_LOGIC;
+    spi3w_sda_t : out STD_LOGIC;
+    spi3w : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component base_system;
   component IOBUF is
@@ -89,6 +103,12 @@ architecture STRUCTURE of base_system_wrapper is
   signal iic_0_sda_i : STD_LOGIC;
   signal iic_0_sda_o : STD_LOGIC;
   signal iic_0_sda_t : STD_LOGIC;
+  signal spi3w_scl_i : STD_LOGIC;
+  signal spi3w_scl_o : STD_LOGIC;
+  signal spi3w_scl_t : STD_LOGIC;
+  signal spi3w_sda_i : STD_LOGIC;
+  signal spi3w_sda_o : STD_LOGIC;
+  signal spi3w_sda_t : STD_LOGIC;
 begin
 base_system_i: component base_system
     port map (
@@ -120,7 +140,16 @@ base_system_i: component base_system
       IIC_0_sda_i => iic_0_sda_i,
       IIC_0_sda_o => iic_0_sda_o,
       IIC_0_sda_t => iic_0_sda_t,
-      LED_tri_o(3 downto 0) => led_tri_o(3 downto 0)
+      LED_tri_o(3 downto 0) => led_tri_o(3 downto 0),
+      spi3w(0) => spi3w(0),
+      spi3w_scl_i => spi3w_scl_i,
+      spi3w_scl_o => spi3w_scl_o,
+      spi3w_scl_t => spi3w_scl_t,
+      spi3w_sda_i => spi3w_sda_i,
+      spi3w_sda_o => spi3w_sda_o,
+      spi3w_sda_t => spi3w_sda_t,
+      timer_generateout0 => timer_generateout0,
+      timer_pwm0 => timer_pwm0
     );
 iic_0_scl_iobuf: component IOBUF
     port map (
@@ -135,5 +164,19 @@ iic_0_sda_iobuf: component IOBUF
       IO => iic_0_sda_io,
       O => iic_0_sda_i,
       T => iic_0_sda_t
+    );
+spi3w_scl_iobuf: component IOBUF
+    port map (
+      I => spi3w_scl_o,
+      IO => spi3w_scl_io,
+      O => spi3w_scl_i,
+      T => spi3w_scl_t
+    );
+spi3w_sda_iobuf: component IOBUF
+    port map (
+      I => spi3w_sda_o,
+      IO => spi3w_sda_io,
+      O => spi3w_sda_i,
+      T => spi3w_sda_t
     );
 end STRUCTURE;

@@ -3,6 +3,17 @@
 ## - uncomment the lines corresponding to used pins
 ## - rename the used signals according to the project
 
+# 3wire spi
+set_property PACKAGE_PIN V12 [get_ports spi3w_sda_io]
+set_property PACKAGE_PIN W16 [get_ports spi3w_scl_io]
+set_property PACKAGE_PIN J15 [get_ports spi3w[0]]
+set_property IOSTANDARD LVCMOS33 [get_ports spi3w*]
+
+# timer
+set_property PACKAGE_PIN Y17 [get_ports timer_pwm0]
+set_property PACKAGE_PIN T17 [get_ports timer_generateout0]
+set_property IOSTANDARD LVCMOS33 [get_ports timer*]
+
 #IIC EEPROM
 set_property PACKAGE_PIN N18 [get_ports iic_0_scl_io]
 set_property PACKAGE_PIN N17 [get_ports iic_0_sda_io]
