@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------
-| Tool Version : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:08:52 MDT 2014
-| Date         : Tue Oct 14 23:17:55 2014
-| Host         : Mars running 64-bit unknown
+| Tool Version : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
+| Date         : Wed Oct 22 00:49:49 2014
+| Host         : saturn running 64-bit unknown
 | Command      : report_drc
 -----------------------------------------------------------------------------------
 

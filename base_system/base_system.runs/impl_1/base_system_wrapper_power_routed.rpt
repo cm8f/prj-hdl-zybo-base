@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:08:52 MDT 2014
-| Date             : Tue Oct 14 23:17:57 2014
-| Host             : Mars running 64-bit unknown
+| Tool Version     : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
+| Date             : Wed Oct 22 00:49:50 2014
+| Host             : saturn running 64-bit unknown
 | Command          : report_power -file base_system_wrapper_power_routed.rpt -pb base_system_wrapper_power_summary_routed.pb
 | Design           : base_system_wrapper
 | Device           : xc7z010clg400-1
@@ -30,13 +30,13 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 1.477 |
-| Dynamic (W)              | 1.351 |
+| Total On-Chip Power (W)  | 1.488 |
+| Dynamic (W)              | 1.361 |
 | Device Static (W)        | 0.127 |
 | Total Off-Chip Power (W) | 0.121 |
 | Effective TJA (C/W)      | 11.5  |
-| Max Ambient (C)          | 68.0  |
-| Junction Temperature (C) | 42.0  |
+| Max Ambient (C)          | 67.8  |
+| Junction Temperature (C) | 42.2  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -50,18 +50,19 @@ Table of Contents
 +-------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
-| Clocks                  |     0.005 |        1 |       --- |             --- |
-| Slice Logic             |    <0.001 |     1873 |       --- |             --- |
-|   LUT as Logic          |    <0.001 |      584 |     17600 |            3.31 |
-|   Register              |    <0.001 |      805 |     35200 |            2.28 |
-|   Others                |     0.000 |      216 |       --- |             --- |
-|   CARRY4                |     0.000 |       18 |      4400 |            0.40 |
-|   LUT as Shift Register |     0.000 |       62 |      6000 |            1.03 |
-| Signals                 |    <0.001 |     1289 |       --- |             --- |
-| I/O                     |     0.001 |       10 |       100 |           10.00 |
+| Clocks                  |     0.007 |        1 |       --- |             --- |
+| Slice Logic             |     0.004 |     3551 |       --- |             --- |
+|   LUT as Logic          |     0.004 |     1351 |     17600 |            7.67 |
+|   Register              |    <0.001 |     1436 |     35200 |            4.07 |
+|   CARRY4                |    <0.001 |       79 |      4400 |            1.79 |
+|   LUT as Shift Register |    <0.001 |       72 |      6000 |            1.20 |
+|   F7/F8 Muxes           |    <0.001 |        2 |     17600 |            0.01 |
+|   Others                |     0.000 |      305 |       --- |             --- |
+| Signals                 |     0.004 |     2398 |       --- |             --- |
+| I/O                     |     0.003 |       15 |       100 |           15.00 |
 | PS7                     |     1.343 |        1 |       --- |             --- |
 | Static Power            |     0.127 |          |           |                 |
-| Total                   |     1.477 |          |           |                 |
+| Total                   |     1.488 |          |           |                 |
 +-------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +72,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.013 |       0.006 |      0.006 |
+| Vccint    |       1.000 |     0.022 |       0.015 |      0.006 |
 | Vccaux    |       1.800 |     0.012 |       0.000 |      0.012 |
-| Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
+| Vcco33    |       3.300 |     0.002 |       0.001 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -147,8 +148,8 @@ Table of Contents
 +--------------------------------------------------+-----------+
 | Name                                             | Power (W) |
 +--------------------------------------------------+-----------+
-| base_system_wrapper                              |     1.351 |
-|   base_system_i                                  |     1.349 |
+| base_system_wrapper                              |     1.361 |
+|   base_system_i                                  |     1.358 |
 |     axi_btn                                      |    <0.001 |
 |       U0                                         |    <0.001 |
 |         AXI_LITE_IPIF_I                          |    <0.001 |
@@ -163,23 +164,61 @@ Table of Contents
 |           I_SLAVE_ATTACHMENT                     |    <0.001 |
 |             I_DECODER                            |    <0.001 |
 |         gpio_core_1                              |    <0.001 |
+|     axi_spi3ws                                   |     0.003 |
+|       U0                                         |     0.003 |
+|         X_IIC                                    |     0.003 |
+|           DYN_MASTER_I                           |    <0.001 |
+|           FILTER_I                               |    <0.001 |
+|             SCL_DEBOUNCE                         |    <0.001 |
+|               INPUT_DOUBLE_REGS                  |    <0.001 |
+|             SDA_DEBOUNCE                         |    <0.001 |
+|               INPUT_DOUBLE_REGS                  |    <0.001 |
+|           IIC_CONTROL_I                          |    <0.001 |
+|             BITCNT                               |    <0.001 |
+|             CLKCNT                               |    <0.001 |
+|             I2CDATA_REG                          |    <0.001 |
+|             I2CHEADER_REG                        |    <0.001 |
+|             SETUP_CNT                            |    <0.001 |
+|           READ_FIFO_I                            |    <0.001 |
+|           REG_INTERFACE_I                        |    <0.001 |
+|           WRITE_FIFO_CTRL_I                      |    <0.001 |
+|           WRITE_FIFO_I                           |    <0.001 |
+|           X_AXI_IPIF_SSP1                        |    <0.001 |
+|             AXI_LITE_IPIF_I                      |    <0.001 |
+|               I_SLAVE_ATTACHMENT                 |    <0.001 |
+|                 I_DECODER                        |    <0.001 |
+|             X_INTERRUPT_CONTROL                  |    <0.001 |
+|             X_SOFT_RESET                         |    <0.001 |
+|     axi_timer_0                                  |     0.002 |
+|       U0                                         |     0.002 |
+|         AXI4_LITE_I                              |    <0.001 |
+|           I_SLAVE_ATTACHMENT                     |    <0.001 |
+|             I_DECODER                            |    <0.001 |
+|         TC_CORE_I                                |     0.001 |
+|           COUNTER_0_I                            |    <0.001 |
+|             COUNTER_I                            |    <0.001 |
+|           GEN_SECOND_TIMER.COUNTER_1_I           |    <0.001 |
+|             COUNTER_I                            |    <0.001 |
+|           READ_MUX_I                             |    <0.001 |
+|           TIMER_CONTROL_I                        |    <0.001 |
+|             INPUT_DOUBLE_REGS3                   |    <0.001 |
 |     gnd                                          |     0.000 |
 |     processing_system7_0                         |     1.343 |
 |       inst                                       |     1.343 |
-|     processing_system7_0_axi_periph              |     0.005 |
-|       s00_couplers                               |     0.004 |
-|         auto_pc                                  |     0.004 |
-|           inst                                   |     0.004 |
-|             gen_axilite.gen_b2s_conv.axilite_b2s |     0.004 |
-|               RD.ar_channel_0                    |    <0.001 |
+|     processing_system7_0_axi_periph              |     0.009 |
+|       s00_couplers                               |     0.007 |
+|         auto_pc                                  |     0.007 |
+|           inst                                   |     0.007 |
+|             gen_axilite.gen_b2s_conv.axilite_b2s |     0.007 |
+|               RD.ar_channel_0                    |     0.001 |
 |                 ar_cmd_fsm_0                     |    <0.001 |
 |                 cmd_translator_0                 |    <0.001 |
 |                   incr_cmd_0                     |    <0.001 |
 |                   wrap_cmd_0                     |    <0.001 |
-|               RD.r_channel_0                     |    <0.001 |
-|                 rd_data_fifo_0                   |    <0.001 |
+|               RD.r_channel_0                     |     0.002 |
+|                 rd_data_fifo_0                   |     0.001 |
 |                 transaction_fifo_0               |    <0.001 |
-|               SI_REG                             |     0.002 |
+|               SI_REG                             |     0.003 |
 |                 ar_pipe                          |    <0.001 |
 |                 aw_pipe                          |    <0.001 |
 |                 b_pipe                           |    <0.001 |
@@ -192,9 +231,9 @@ Table of Contents
 |               WR.b_channel_0                     |    <0.001 |
 |                 bid_fifo_0                       |    <0.001 |
 |                 bresp_fifo_0                     |    <0.001 |
-|       xbar                                       |    <0.001 |
-|         inst                                     |    <0.001 |
-|           gen_sasd.crossbar_sasd_0               |    <0.001 |
+|       xbar                                       |     0.001 |
+|         inst                                     |     0.001 |
+|           gen_sasd.crossbar_sasd_0               |     0.001 |
 |             addr_arbiter_inst                    |    <0.001 |
 |             gen_decerr.decerr_slave_inst         |    <0.001 |
 |             reg_slice_r                          |    <0.001 |
@@ -205,8 +244,11 @@ Table of Contents
 |         EXT_LPF                                  |    <0.001 |
 |         SEQ                                      |    <0.001 |
 |           SEQ_COUNTER                            |    <0.001 |
+|     xlconcat_0                                   |     0.000 |
 |   iic_0_scl_iobuf                                |    <0.001 |
 |   iic_0_sda_iobuf                                |    <0.001 |
+|   spi3w_scl_iobuf                                |     0.000 |
+|   spi3w_sda_iobuf                                |     0.000 |
 +--------------------------------------------------+-----------+
 
 

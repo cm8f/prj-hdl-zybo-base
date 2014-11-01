@@ -27,6 +27,15 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==base_system_rst
 # IP: bd/base_system/ip/base_system_xbar_0/base_system_xbar_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==base_system_xbar_0 || ORIG_REF_NAME==base_system_xbar_0}]
 
+# IP: bd/base_system/ip/base_system_axi_timer_0_0/base_system_axi_timer_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==base_system_axi_timer_0_0 || ORIG_REF_NAME==base_system_axi_timer_0_0}]
+
+# IP: bd/base_system/ip/base_system_xlconcat_0_0/base_system_xlconcat_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==base_system_xlconcat_0_0 || ORIG_REF_NAME==base_system_xlconcat_0_0}]
+
+# IP: bd/base_system/ip/base_system_axi_iic_0_0/base_system_axi_iic_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==base_system_axi_iic_0_0 || ORIG_REF_NAME==base_system_axi_iic_0_0}]
+
 # IP: bd/base_system/ip/base_system_auto_pc_0/base_system_auto_pc_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==base_system_auto_pc_0 || ORIG_REF_NAME==base_system_auto_pc_0}]
 
@@ -58,6 +67,16 @@ set_property DONT_TOUCH TRUE [get_cells [split [join [get_cells -hier -filter {R
 #dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==base_system_rst_processing_system7_0_100M_0 || ORIG_REF_NAME==base_system_rst_processing_system7_0_100M_0}]
 
 # XDC: bd/base_system/ip/base_system_xbar_0/base_system_xbar_0_ooc.xdc
+
+# XDC: bd/base_system/ip/base_system_axi_timer_0_0/base_system_axi_timer_0_0.xdc
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==base_system_axi_timer_0_0 || ORIG_REF_NAME==base_system_axi_timer_0_0}]
+
+# XDC: bd/base_system/ip/base_system_axi_timer_0_0/base_system_axi_timer_0_0_ooc.xdc
+
+# XDC: bd/base_system/ip/base_system_axi_iic_0_0/base_system_axi_iic_0_0_ooc.xdc
+
+# XDC: bd/base_system/ip/base_system_axi_iic_0_0/base_system_axi_iic_0_0_board.xdc
+#dup# set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==base_system_axi_iic_0_0 || ORIG_REF_NAME==base_system_axi_iic_0_0}]
 
 # XDC: bd/base_system/ip/base_system_auto_pc_0/base_system_auto_pc_0_ooc.xdc
 
