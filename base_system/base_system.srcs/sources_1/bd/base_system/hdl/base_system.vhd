@@ -1,8 +1,8 @@
 --Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
---Date        : Wed Oct 22 00:47:07 2014
---Host        : saturn running 64-bit unknown
+--Tool Version: Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:08:52 MDT 2014
+--Date        : Sat Nov  1 21:33:39 2014
+--Host        : Mars running 64-bit unknown
 --Command     : generate_target base_system.bd
 --Design      : base_system
 --Purpose     : IP block netlist
@@ -1967,12 +1967,12 @@ architecture STRUCTURE of base_system is
   signal rst_processing_system7_0_100M_interconnect_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal rst_processing_system7_0_100M_peripheral_aresetn : STD_LOGIC_VECTOR ( 0 to 0 );
   signal xlconcat_0_dout : STD_LOGIC_VECTOR ( 2 downto 0 );
-  signal NLW_axi_timer_0_generateout1_UNCONNECTED : STD_LOGIC;
-  signal NLW_processing_system7_0_USB0_VBUS_PWRSELECT_UNCONNECTED : STD_LOGIC;
-  signal NLW_processing_system7_0_USB0_PORT_INDCTL_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
-  signal NLW_rst_processing_system7_0_100M_mb_reset_UNCONNECTED : STD_LOGIC;
-  signal NLW_rst_processing_system7_0_100M_bus_struct_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
-  signal NLW_rst_processing_system7_0_100M_peripheral_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_axi_timer_generateout1_UNCONNECTED : STD_LOGIC;
+  signal NLW_ps7_USB0_VBUS_PWRSELECT_UNCONNECTED : STD_LOGIC;
+  signal NLW_ps7_USB0_PORT_INDCTL_UNCONNECTED : STD_LOGIC_VECTOR ( 1 downto 0 );
+  signal NLW_rst_ps7_100M_mb_reset_UNCONNECTED : STD_LOGIC;
+  signal NLW_rst_ps7_100M_bus_struct_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
+  signal NLW_rst_ps7_100M_peripheral_reset_UNCONNECTED : STD_LOGIC_VECTOR ( 0 to 0 );
 begin
   IIC_0_scl_o <= processing_system7_0_IIC_0_SCL_O;
   IIC_0_scl_t <= processing_system7_0_IIC_0_SCL_T;
@@ -2076,13 +2076,13 @@ axi_spi3ws: component base_system_axi_iic_0_0
       sda_o => axi_iic_0_IIC_SDA_O,
       sda_t => axi_iic_0_IIC_SDA_T
     );
-axi_timer_0: component base_system_axi_timer_0_0
+axi_timer: component base_system_axi_timer_0_0
     port map (
       capturetrig0 => GND_2,
       capturetrig1 => GND_2,
       freeze => GND_2,
       generateout0 => axi_timer_0_generateout0,
-      generateout1 => NLW_axi_timer_0_generateout1_UNCONNECTED,
+      generateout1 => NLW_axi_timer_generateout1_UNCONNECTED,
       interrupt => axi_timer_0_interrupt,
       pwm0 => axi_timer_0_pwm0,
       s_axi_aclk => processing_system7_0_FCLK_CLK0,
@@ -2109,81 +2109,12 @@ gnd: component base_system_xlconstant_0_0
     port map (
       dout(0) => gnd_dout(0)
     );
-processing_system7_0: component base_system_processing_system7_0_0
+irq_concat: component base_system_xlconcat_0_0
     port map (
-      DDR_Addr(14 downto 0) => DDR_addr(14 downto 0),
-      DDR_BankAddr(2 downto 0) => DDR_ba(2 downto 0),
-      DDR_CAS_n => DDR_cas_n,
-      DDR_CKE => DDR_cke,
-      DDR_CS_n => DDR_cs_n,
-      DDR_Clk => DDR_ck_p,
-      DDR_Clk_n => DDR_ck_n,
-      DDR_DM(3 downto 0) => DDR_dm(3 downto 0),
-      DDR_DQ(31 downto 0) => DDR_dq(31 downto 0),
-      DDR_DQS(3 downto 0) => DDR_dqs_p(3 downto 0),
-      DDR_DQS_n(3 downto 0) => DDR_dqs_n(3 downto 0),
-      DDR_DRSTB => DDR_reset_n,
-      DDR_ODT => DDR_odt,
-      DDR_RAS_n => DDR_ras_n,
-      DDR_VRN => FIXED_IO_ddr_vrn,
-      DDR_VRP => FIXED_IO_ddr_vrp,
-      DDR_WEB => DDR_we_n,
-      FCLK_CLK0 => processing_system7_0_FCLK_CLK0,
-      FCLK_RESET0_N => processing_system7_0_FCLK_RESET0_N,
-      I2C0_SCL_I => processing_system7_0_IIC_0_SCL_I,
-      I2C0_SCL_O => processing_system7_0_IIC_0_SCL_O,
-      I2C0_SCL_T => processing_system7_0_IIC_0_SCL_T,
-      I2C0_SDA_I => processing_system7_0_IIC_0_SDA_I,
-      I2C0_SDA_O => processing_system7_0_IIC_0_SDA_O,
-      I2C0_SDA_T => processing_system7_0_IIC_0_SDA_T,
-      IRQ_F2P(2 downto 0) => xlconcat_0_dout(2 downto 0),
-      MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),
-      M_AXI_GP0_ACLK => processing_system7_0_FCLK_CLK0,
-      M_AXI_GP0_ARADDR(31 downto 0) => processing_system7_0_M_AXI_GP0_ARADDR(31 downto 0),
-      M_AXI_GP0_ARBURST(1 downto 0) => processing_system7_0_M_AXI_GP0_ARBURST(1 downto 0),
-      M_AXI_GP0_ARCACHE(3 downto 0) => processing_system7_0_M_AXI_GP0_ARCACHE(3 downto 0),
-      M_AXI_GP0_ARID(11 downto 0) => processing_system7_0_M_AXI_GP0_ARID(11 downto 0),
-      M_AXI_GP0_ARLEN(3 downto 0) => processing_system7_0_M_AXI_GP0_ARLEN(3 downto 0),
-      M_AXI_GP0_ARLOCK(1 downto 0) => processing_system7_0_M_AXI_GP0_ARLOCK(1 downto 0),
-      M_AXI_GP0_ARPROT(2 downto 0) => processing_system7_0_M_AXI_GP0_ARPROT(2 downto 0),
-      M_AXI_GP0_ARQOS(3 downto 0) => processing_system7_0_M_AXI_GP0_ARQOS(3 downto 0),
-      M_AXI_GP0_ARREADY => processing_system7_0_M_AXI_GP0_ARREADY,
-      M_AXI_GP0_ARSIZE(2 downto 0) => processing_system7_0_M_AXI_GP0_ARSIZE(2 downto 0),
-      M_AXI_GP0_ARVALID => processing_system7_0_M_AXI_GP0_ARVALID,
-      M_AXI_GP0_AWADDR(31 downto 0) => processing_system7_0_M_AXI_GP0_AWADDR(31 downto 0),
-      M_AXI_GP0_AWBURST(1 downto 0) => processing_system7_0_M_AXI_GP0_AWBURST(1 downto 0),
-      M_AXI_GP0_AWCACHE(3 downto 0) => processing_system7_0_M_AXI_GP0_AWCACHE(3 downto 0),
-      M_AXI_GP0_AWID(11 downto 0) => processing_system7_0_M_AXI_GP0_AWID(11 downto 0),
-      M_AXI_GP0_AWLEN(3 downto 0) => processing_system7_0_M_AXI_GP0_AWLEN(3 downto 0),
-      M_AXI_GP0_AWLOCK(1 downto 0) => processing_system7_0_M_AXI_GP0_AWLOCK(1 downto 0),
-      M_AXI_GP0_AWPROT(2 downto 0) => processing_system7_0_M_AXI_GP0_AWPROT(2 downto 0),
-      M_AXI_GP0_AWQOS(3 downto 0) => processing_system7_0_M_AXI_GP0_AWQOS(3 downto 0),
-      M_AXI_GP0_AWREADY => processing_system7_0_M_AXI_GP0_AWREADY,
-      M_AXI_GP0_AWSIZE(2 downto 0) => processing_system7_0_M_AXI_GP0_AWSIZE(2 downto 0),
-      M_AXI_GP0_AWVALID => processing_system7_0_M_AXI_GP0_AWVALID,
-      M_AXI_GP0_BID(11 downto 0) => processing_system7_0_M_AXI_GP0_BID(11 downto 0),
-      M_AXI_GP0_BREADY => processing_system7_0_M_AXI_GP0_BREADY,
-      M_AXI_GP0_BRESP(1 downto 0) => processing_system7_0_M_AXI_GP0_BRESP(1 downto 0),
-      M_AXI_GP0_BVALID => processing_system7_0_M_AXI_GP0_BVALID,
-      M_AXI_GP0_RDATA(31 downto 0) => processing_system7_0_M_AXI_GP0_RDATA(31 downto 0),
-      M_AXI_GP0_RID(11 downto 0) => processing_system7_0_M_AXI_GP0_RID(11 downto 0),
-      M_AXI_GP0_RLAST => processing_system7_0_M_AXI_GP0_RLAST,
-      M_AXI_GP0_RREADY => processing_system7_0_M_AXI_GP0_RREADY,
-      M_AXI_GP0_RRESP(1 downto 0) => processing_system7_0_M_AXI_GP0_RRESP(1 downto 0),
-      M_AXI_GP0_RVALID => processing_system7_0_M_AXI_GP0_RVALID,
-      M_AXI_GP0_WDATA(31 downto 0) => processing_system7_0_M_AXI_GP0_WDATA(31 downto 0),
-      M_AXI_GP0_WID(11 downto 0) => processing_system7_0_M_AXI_GP0_WID(11 downto 0),
-      M_AXI_GP0_WLAST => processing_system7_0_M_AXI_GP0_WLAST,
-      M_AXI_GP0_WREADY => processing_system7_0_M_AXI_GP0_WREADY,
-      M_AXI_GP0_WSTRB(3 downto 0) => processing_system7_0_M_AXI_GP0_WSTRB(3 downto 0),
-      M_AXI_GP0_WVALID => processing_system7_0_M_AXI_GP0_WVALID,
-      PS_CLK => FIXED_IO_ps_clk,
-      PS_PORB => FIXED_IO_ps_porb,
-      PS_SRSTB => FIXED_IO_ps_srstb,
-      SDIO0_WP => gnd_dout(0),
-      USB0_PORT_INDCTL(1 downto 0) => NLW_processing_system7_0_USB0_PORT_INDCTL_UNCONNECTED(1 downto 0),
-      USB0_VBUS_PWRFAULT => GND_2,
-      USB0_VBUS_PWRSELECT => NLW_processing_system7_0_USB0_VBUS_PWRSELECT_UNCONNECTED
+      In0(0) => axi_btn_ip2intc_irpt,
+      In1(0) => axi_timer_0_interrupt,
+      In2(0) => axi_iic_0_iic2intc_irpt,
+      dout(2 downto 0) => xlconcat_0_dout(2 downto 0)
     );
 processing_system7_0_axi_periph: entity work.base_system_processing_system7_0_axi_periph_0
     port map (
@@ -2306,24 +2237,93 @@ processing_system7_0_axi_periph: entity work.base_system_processing_system7_0_ax
       S00_AXI_wstrb(3 downto 0) => processing_system7_0_M_AXI_GP0_WSTRB(3 downto 0),
       S00_AXI_wvalid => processing_system7_0_M_AXI_GP0_WVALID
     );
-rst_processing_system7_0_100M: component base_system_rst_processing_system7_0_100M_0
+ps7: component base_system_processing_system7_0_0
+    port map (
+      DDR_Addr(14 downto 0) => DDR_addr(14 downto 0),
+      DDR_BankAddr(2 downto 0) => DDR_ba(2 downto 0),
+      DDR_CAS_n => DDR_cas_n,
+      DDR_CKE => DDR_cke,
+      DDR_CS_n => DDR_cs_n,
+      DDR_Clk => DDR_ck_p,
+      DDR_Clk_n => DDR_ck_n,
+      DDR_DM(3 downto 0) => DDR_dm(3 downto 0),
+      DDR_DQ(31 downto 0) => DDR_dq(31 downto 0),
+      DDR_DQS(3 downto 0) => DDR_dqs_p(3 downto 0),
+      DDR_DQS_n(3 downto 0) => DDR_dqs_n(3 downto 0),
+      DDR_DRSTB => DDR_reset_n,
+      DDR_ODT => DDR_odt,
+      DDR_RAS_n => DDR_ras_n,
+      DDR_VRN => FIXED_IO_ddr_vrn,
+      DDR_VRP => FIXED_IO_ddr_vrp,
+      DDR_WEB => DDR_we_n,
+      FCLK_CLK0 => processing_system7_0_FCLK_CLK0,
+      FCLK_RESET0_N => processing_system7_0_FCLK_RESET0_N,
+      I2C0_SCL_I => processing_system7_0_IIC_0_SCL_I,
+      I2C0_SCL_O => processing_system7_0_IIC_0_SCL_O,
+      I2C0_SCL_T => processing_system7_0_IIC_0_SCL_T,
+      I2C0_SDA_I => processing_system7_0_IIC_0_SDA_I,
+      I2C0_SDA_O => processing_system7_0_IIC_0_SDA_O,
+      I2C0_SDA_T => processing_system7_0_IIC_0_SDA_T,
+      IRQ_F2P(2 downto 0) => xlconcat_0_dout(2 downto 0),
+      MIO(53 downto 0) => FIXED_IO_mio(53 downto 0),
+      M_AXI_GP0_ACLK => processing_system7_0_FCLK_CLK0,
+      M_AXI_GP0_ARADDR(31 downto 0) => processing_system7_0_M_AXI_GP0_ARADDR(31 downto 0),
+      M_AXI_GP0_ARBURST(1 downto 0) => processing_system7_0_M_AXI_GP0_ARBURST(1 downto 0),
+      M_AXI_GP0_ARCACHE(3 downto 0) => processing_system7_0_M_AXI_GP0_ARCACHE(3 downto 0),
+      M_AXI_GP0_ARID(11 downto 0) => processing_system7_0_M_AXI_GP0_ARID(11 downto 0),
+      M_AXI_GP0_ARLEN(3 downto 0) => processing_system7_0_M_AXI_GP0_ARLEN(3 downto 0),
+      M_AXI_GP0_ARLOCK(1 downto 0) => processing_system7_0_M_AXI_GP0_ARLOCK(1 downto 0),
+      M_AXI_GP0_ARPROT(2 downto 0) => processing_system7_0_M_AXI_GP0_ARPROT(2 downto 0),
+      M_AXI_GP0_ARQOS(3 downto 0) => processing_system7_0_M_AXI_GP0_ARQOS(3 downto 0),
+      M_AXI_GP0_ARREADY => processing_system7_0_M_AXI_GP0_ARREADY,
+      M_AXI_GP0_ARSIZE(2 downto 0) => processing_system7_0_M_AXI_GP0_ARSIZE(2 downto 0),
+      M_AXI_GP0_ARVALID => processing_system7_0_M_AXI_GP0_ARVALID,
+      M_AXI_GP0_AWADDR(31 downto 0) => processing_system7_0_M_AXI_GP0_AWADDR(31 downto 0),
+      M_AXI_GP0_AWBURST(1 downto 0) => processing_system7_0_M_AXI_GP0_AWBURST(1 downto 0),
+      M_AXI_GP0_AWCACHE(3 downto 0) => processing_system7_0_M_AXI_GP0_AWCACHE(3 downto 0),
+      M_AXI_GP0_AWID(11 downto 0) => processing_system7_0_M_AXI_GP0_AWID(11 downto 0),
+      M_AXI_GP0_AWLEN(3 downto 0) => processing_system7_0_M_AXI_GP0_AWLEN(3 downto 0),
+      M_AXI_GP0_AWLOCK(1 downto 0) => processing_system7_0_M_AXI_GP0_AWLOCK(1 downto 0),
+      M_AXI_GP0_AWPROT(2 downto 0) => processing_system7_0_M_AXI_GP0_AWPROT(2 downto 0),
+      M_AXI_GP0_AWQOS(3 downto 0) => processing_system7_0_M_AXI_GP0_AWQOS(3 downto 0),
+      M_AXI_GP0_AWREADY => processing_system7_0_M_AXI_GP0_AWREADY,
+      M_AXI_GP0_AWSIZE(2 downto 0) => processing_system7_0_M_AXI_GP0_AWSIZE(2 downto 0),
+      M_AXI_GP0_AWVALID => processing_system7_0_M_AXI_GP0_AWVALID,
+      M_AXI_GP0_BID(11 downto 0) => processing_system7_0_M_AXI_GP0_BID(11 downto 0),
+      M_AXI_GP0_BREADY => processing_system7_0_M_AXI_GP0_BREADY,
+      M_AXI_GP0_BRESP(1 downto 0) => processing_system7_0_M_AXI_GP0_BRESP(1 downto 0),
+      M_AXI_GP0_BVALID => processing_system7_0_M_AXI_GP0_BVALID,
+      M_AXI_GP0_RDATA(31 downto 0) => processing_system7_0_M_AXI_GP0_RDATA(31 downto 0),
+      M_AXI_GP0_RID(11 downto 0) => processing_system7_0_M_AXI_GP0_RID(11 downto 0),
+      M_AXI_GP0_RLAST => processing_system7_0_M_AXI_GP0_RLAST,
+      M_AXI_GP0_RREADY => processing_system7_0_M_AXI_GP0_RREADY,
+      M_AXI_GP0_RRESP(1 downto 0) => processing_system7_0_M_AXI_GP0_RRESP(1 downto 0),
+      M_AXI_GP0_RVALID => processing_system7_0_M_AXI_GP0_RVALID,
+      M_AXI_GP0_WDATA(31 downto 0) => processing_system7_0_M_AXI_GP0_WDATA(31 downto 0),
+      M_AXI_GP0_WID(11 downto 0) => processing_system7_0_M_AXI_GP0_WID(11 downto 0),
+      M_AXI_GP0_WLAST => processing_system7_0_M_AXI_GP0_WLAST,
+      M_AXI_GP0_WREADY => processing_system7_0_M_AXI_GP0_WREADY,
+      M_AXI_GP0_WSTRB(3 downto 0) => processing_system7_0_M_AXI_GP0_WSTRB(3 downto 0),
+      M_AXI_GP0_WVALID => processing_system7_0_M_AXI_GP0_WVALID,
+      PS_CLK => FIXED_IO_ps_clk,
+      PS_PORB => FIXED_IO_ps_porb,
+      PS_SRSTB => FIXED_IO_ps_srstb,
+      SDIO0_WP => gnd_dout(0),
+      USB0_PORT_INDCTL(1 downto 0) => NLW_ps7_USB0_PORT_INDCTL_UNCONNECTED(1 downto 0),
+      USB0_VBUS_PWRFAULT => GND_2,
+      USB0_VBUS_PWRSELECT => NLW_ps7_USB0_VBUS_PWRSELECT_UNCONNECTED
+    );
+rst_ps7_100M: component base_system_rst_processing_system7_0_100M_0
     port map (
       aux_reset_in => VCC_1,
-      bus_struct_reset(0) => NLW_rst_processing_system7_0_100M_bus_struct_reset_UNCONNECTED(0),
+      bus_struct_reset(0) => NLW_rst_ps7_100M_bus_struct_reset_UNCONNECTED(0),
       dcm_locked => VCC_1,
       ext_reset_in => processing_system7_0_FCLK_RESET0_N,
       interconnect_aresetn(0) => rst_processing_system7_0_100M_interconnect_aresetn(0),
       mb_debug_sys_rst => GND_2,
-      mb_reset => NLW_rst_processing_system7_0_100M_mb_reset_UNCONNECTED,
+      mb_reset => NLW_rst_ps7_100M_mb_reset_UNCONNECTED,
       peripheral_aresetn(0) => rst_processing_system7_0_100M_peripheral_aresetn(0),
-      peripheral_reset(0) => NLW_rst_processing_system7_0_100M_peripheral_reset_UNCONNECTED(0),
+      peripheral_reset(0) => NLW_rst_ps7_100M_peripheral_reset_UNCONNECTED(0),
       slowest_sync_clk => processing_system7_0_FCLK_CLK0
-    );
-xlconcat_0: component base_system_xlconcat_0_0
-    port map (
-      In0(0) => axi_btn_ip2intc_irpt,
-      In1(0) => axi_timer_0_interrupt,
-      In2(0) => axi_iic_0_iic2intc_irpt,
-      dout(2 downto 0) => xlconcat_0_dout(2 downto 0)
     );
 end STRUCTURE;

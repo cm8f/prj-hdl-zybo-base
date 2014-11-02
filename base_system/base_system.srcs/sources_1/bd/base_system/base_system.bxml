@@ -7,7 +7,7 @@
     <Generation Name="SIMULATION" State="STALE"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/base_system_processing_system7_0_0/base_system_processing_system7_0_0.xci" Type="IP">
-        <Instance HierarchyPath="processing_system7_0"/>
+        <Instance HierarchyPath="ps7"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -47,7 +47,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/base_system_rst_processing_system7_0_100M_0/base_system_rst_processing_system7_0_100M_0.xci" Type="IP">
-        <Instance HierarchyPath="rst_processing_system7_0_100M"/>
+        <Instance HierarchyPath="rst_ps7_100M"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -63,7 +63,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/base_system_axi_timer_0_0/base_system_axi_timer_0_0.xci" Type="IP">
-        <Instance HierarchyPath="axi_timer_0"/>
+        <Instance HierarchyPath="axi_timer"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
@@ -71,7 +71,7 @@
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="ip/base_system_xlconcat_0_0/base_system_xlconcat_0_0.xci" Type="IP">
-        <Instance HierarchyPath="xlconcat_0"/>
+        <Instance HierarchyPath="irq_concat"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

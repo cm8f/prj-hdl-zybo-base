@@ -1,8 +1,8 @@
 --Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------
---Tool Version: Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
---Date        : Wed Oct 22 00:47:07 2014
---Host        : saturn running 64-bit unknown
+--Tool Version: Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:08:52 MDT 2014
+--Date        : Sat Nov  1 21:33:39 2014
+--Host        : Mars running 64-bit unknown
 --Command     : generate_target base_system_wrapper.bd
 --Design      : base_system_wrapper
 --Purpose     : IP block netlist
@@ -78,14 +78,14 @@ architecture STRUCTURE of base_system_wrapper is
     IIC_0_scl_t : out STD_LOGIC;
     LED_tri_o : out STD_LOGIC_VECTOR ( 3 downto 0 );
     BTN_tri_i : in STD_LOGIC_VECTOR ( 3 downto 0 );
-    timer_pwm0 : out STD_LOGIC;
-    timer_generateout0 : out STD_LOGIC;
     spi3w_scl_i : in STD_LOGIC;
     spi3w_scl_o : out STD_LOGIC;
     spi3w_scl_t : out STD_LOGIC;
     spi3w_sda_i : in STD_LOGIC;
     spi3w_sda_o : out STD_LOGIC;
     spi3w_sda_t : out STD_LOGIC;
+    timer_pwm0 : out STD_LOGIC;
+    timer_generateout0 : out STD_LOGIC;
     spi3w : out STD_LOGIC_VECTOR ( 0 to 0 )
   );
   end component base_system;

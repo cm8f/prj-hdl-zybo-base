@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
-| Date         : Wed Oct 22 00:49:33 2014
-| Host         : saturn running 64-bit unknown
+| Tool Version : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:08:52 MDT 2014
+| Date         : Sat Nov  1 21:37:50 2014
+| Host         : Mars running 64-bit unknown
 | Command      : report_clock_utilization -file base_system_wrapper_clock_utilization_placed.rpt
 | Design       : base_system_wrapper
 | Device       : xc7z010
@@ -42,13 +42,13 @@ Table of Contents
 2. Details of Global Clocks
 ---------------------------
 
-+-------+---------------------------------------------------------------------------+---------------------------------------------------+--------------+-------+---------------+-----------+
-|       |                                                                           |                                                   |   Num Loads  |       |               |           |
-+-------+---------------------------------------------------------------------------+---------------------------------------------------+------+-------+-------+---------------+-----------+
-| Index | BUFG Cell                                                                 | Net Name                                          | BELs | Sites | Fixed | MaxDelay (ns) | Skew (ns) |
-+-------+---------------------------------------------------------------------------+---------------------------------------------------+------+-------+-------+---------------+-----------+
-|     1 | base_system_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG | base_system_i/processing_system7_0/inst/FCLK_CLK0 | 1525 |   518 |    no |         1.910 |     0.239 |
-+-------+---------------------------------------------------------------------------+---------------------------------------------------+------+-------+-------+---------------+-----------+
++-------+----------------------------------------------------------+----------------------------------+--------------+-------+---------------+-----------+
+|       |                                                          |                                  |   Num Loads  |       |               |           |
++-------+----------------------------------------------------------+----------------------------------+------+-------+-------+---------------+-----------+
+| Index | BUFG Cell                                                | Net Name                         | BELs | Sites | Fixed | MaxDelay (ns) | Skew (ns) |
++-------+----------------------------------------------------------+----------------------------------+------+-------+-------+---------------+-----------+
+|     1 | base_system_i/ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG | base_system_i/ps7/inst/FCLK_CLK0 | 1525 |   518 |    no |         1.910 |     0.239 |
++-------+----------------------------------------------------------+----------------------------------+------+-------+-------+---------------+-----------+
 
 
 3. Details of Regional Clocks
@@ -82,36 +82,36 @@ Table of Contents
 8. Net wise resources used in clock region X0Y0
 -----------------------------------------------
 
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+------+-------+----------+---------------------------------------------------+
-| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs |  FFs | LUTMs | DSP48E1s |                   Clock Net Name                  |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+------+-------+----------+---------------------------------------------------+
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 | 1012 |    72 |        0 | base_system_i/processing_system7_0/inst/FCLK_CLK0 |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+------+-------+----------+---------------------------------------------------+
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+------+-------+----------+----------------------------------+
+| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs |  FFs | LUTMs | DSP48E1s |          Clock Net Name          |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+------+-------+----------+----------------------------------+
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 | 1012 |    72 |        0 | base_system_i/ps7/inst/FCLK_CLK0 |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+------+-------+----------+----------------------------------+
 
 
 9. Net wise resources used in clock region X1Y0
 -----------------------------------------------
 
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------------------------------------+
-| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |                   Clock Net Name                  |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------------------------------------+
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 | 195 |     0 |        0 | base_system_i/processing_system7_0/inst/FCLK_CLK0 |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------------------------------------+
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------------------------+
+| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |          Clock Net Name          |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------------------------+
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 | 195 |     0 |        0 | base_system_i/ps7/inst/FCLK_CLK0 |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------------------------+
 
 
 10. Net wise resources used in clock region X0Y1
 ------------------------------------------------
 
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------------------------------------+
-| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |                   Clock Net Name                  |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------------------------------------+
-| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 | 229 |    16 |        0 | base_system_i/processing_system7_0/inst/FCLK_CLK0 |
-+-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+---------------------------------------------------+
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------------------------+
+| Source Type | BUFHCE Site | Fixed | MMCM Pins | PLL Pins | GT Pins | BRAM Pins | ILOGICs | OLOGICs | FFs | LUTMs | DSP48E1s |          Clock Net Name          |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------------------------+
+| BUFG        |     ---     |   no  |         0 |        0 |       0 |         0 |       0 |       0 | 229 |    16 |        0 | base_system_i/ps7/inst/FCLK_CLK0 |
++-------------+-------------+-------+-----------+----------+---------+-----------+---------+---------+-----+-------+----------+----------------------------------+
 
 
 
 # Location of BUFG Primitives 
-set_property LOC BUFGCTRL_X0Y0 [get_cells base_system_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG]
+set_property LOC BUFGCTRL_X0Y0 [get_cells base_system_i/ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG]
 
 # Location of IO Clock Primitives
 
@@ -129,9 +129,9 @@ set_property LOC BUFGCTRL_X0Y0 [get_cells base_system_i/processing_system7_0/ins
 
 # Location of clock ports
 
-# Clock net "base_system_i/processing_system7_0/inst/FCLK_CLK0" driven by instance "base_system_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG" located at site "BUFGCTRL_X0Y0"
+# Clock net "base_system_i/ps7/inst/FCLK_CLK0" driven by instance "base_system_i/ps7/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG" located at site "BUFGCTRL_X0Y0"
 #startgroup
-create_pblock CLKAG_base_system_i/processing_system7_0/inst/FCLK_CLK0
-add_cells_to_pblock [get_pblocks  CLKAG_base_system_i/processing_system7_0/inst/FCLK_CLK0] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="base_system_i/processing_system7_0/inst/FCLK_CLK0"}]]]
-resize_pblock [get_pblocks CLKAG_base_system_i/processing_system7_0/inst/FCLK_CLK0] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0}
+create_pblock CLKAG_base_system_i/ps7/inst/FCLK_CLK0
+add_cells_to_pblock [get_pblocks  CLKAG_base_system_i/ps7/inst/FCLK_CLK0] [get_cells  -filter { IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL } -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="base_system_i/ps7/inst/FCLK_CLK0"}]]]
+resize_pblock [get_pblocks CLKAG_base_system_i/ps7/inst/FCLK_CLK0] -add {CLOCKREGION_X0Y0:CLOCKREGION_X0Y0 CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X1Y0:CLOCKREGION_X1Y0}
 #endgroup

@@ -1,8 +1,8 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------
-| Tool Version     : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:12:34 MDT 2014
-| Date             : Wed Oct 22 00:49:50 2014
-| Host             : saturn running 64-bit unknown
+| Tool Version     : Vivado v.2014.2 (lin64) Build 932637 Wed Jun 11 13:08:52 MDT 2014
+| Date             : Sat Nov  1 21:38:20 2014
+| Host             : Mars running 64-bit unknown
 | Command          : report_power -file base_system_wrapper_power_routed.rpt -pb base_system_wrapper_power_summary_routed.pb
 | Design           : base_system_wrapper
 | Device           : xc7z010clg400-1
@@ -132,11 +132,11 @@ Table of Contents
 2.2 Clock Constraints
 ---------------------
 
-+------------+----------------------------------------------------------------+-----------------+
-| Clock      | Domain                                                         | Constraint (ns) |
-+------------+----------------------------------------------------------------+-----------------+
-| clk_fpga_0 | base_system_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0] |            10.0 |
-+------------+----------------------------------------------------------------+-----------------+
++------------+-----------------------------------------------+-----------------+
+| Clock      | Domain                                        | Constraint (ns) |
++------------+-----------------------------------------------+-----------------+
+| clk_fpga_0 | base_system_i/ps7/inst/FCLK_CLK_unbuffered[0] |            10.0 |
++------------+-----------------------------------------------+-----------------+
 
 
 3. Detailed Reports
@@ -189,7 +189,7 @@ Table of Contents
 |                 I_DECODER                        |    <0.001 |
 |             X_INTERRUPT_CONTROL                  |    <0.001 |
 |             X_SOFT_RESET                         |    <0.001 |
-|     axi_timer_0                                  |     0.002 |
+|     axi_timer                                    |     0.002 |
 |       U0                                         |     0.002 |
 |         AXI4_LITE_I                              |    <0.001 |
 |           I_SLAVE_ATTACHMENT                     |    <0.001 |
@@ -203,8 +203,7 @@ Table of Contents
 |           TIMER_CONTROL_I                        |    <0.001 |
 |             INPUT_DOUBLE_REGS3                   |    <0.001 |
 |     gnd                                          |     0.000 |
-|     processing_system7_0                         |     1.343 |
-|       inst                                       |     1.343 |
+|     irq_concat                                   |     0.000 |
 |     processing_system7_0_axi_periph              |     0.009 |
 |       s00_couplers                               |     0.007 |
 |         auto_pc                                  |     0.007 |
@@ -239,12 +238,13 @@ Table of Contents
 |             reg_slice_r                          |    <0.001 |
 |             splitter_ar                          |    <0.001 |
 |             splitter_aw                          |    <0.001 |
-|     rst_processing_system7_0_100M                |    <0.001 |
+|     ps7                                          |     1.343 |
+|       inst                                       |     1.343 |
+|     rst_ps7_100M                                 |    <0.001 |
 |       U0                                         |    <0.001 |
 |         EXT_LPF                                  |    <0.001 |
 |         SEQ                                      |    <0.001 |
 |           SEQ_COUNTER                            |    <0.001 |
-|     xlconcat_0                                   |     0.000 |
 |   iic_0_scl_iobuf                                |    <0.001 |
 |   iic_0_sda_iobuf                                |    <0.001 |
 |   spi3w_scl_iobuf                                |     0.000 |
