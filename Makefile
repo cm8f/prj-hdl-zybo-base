@@ -1,0 +1,11 @@
+
+fpga: 
+	cd ./workspace && vivado -mode batch -source ./build.tcl
+	cp -f workspace/zybo_base_system/zybo_base_system.xsa ./vitis/hwexport.xsa 
+
+init_apps_standalone: 
+	cd ./vitis/standalone && xsct -eval source ./init.tcl
+
+apps_standalone: 
+	cd ./vitis/standalone && xsct -eval source ./build.tcl
+
