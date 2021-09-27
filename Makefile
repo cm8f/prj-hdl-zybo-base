@@ -9,3 +9,9 @@ init_apps_standalone:
 apps_standalone: 
 	cd ./vitis/standalone && xsct -eval source ./build.tcl
 
+init_apps_freertos:
+	cd ./vitis/freeRTOS && xsct -eval source ./init.tcl
+
+apps_freertos: 
+	cd ./vitis/freeRTOS/ && xsct -eval source ./build.tcl
+

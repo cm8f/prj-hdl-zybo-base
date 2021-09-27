@@ -12,5 +12,7 @@ SDK/RemoteSystemsTempFiles/**
 workspace/zybo_base_system/*
 vitis/standalone/zybo_platform/*
 vitis/standalone/zybo_standalone_*/*
+vitis/freeRTOS/zybo_platform/*
+vitis/freeRTOS/zybo_freertos*/*
 vitis/*.xsa
 **/.analytics
