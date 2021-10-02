@@ -1,0 +1,10 @@
+# HI-Speed
+set_property PACKAGE_PIN T20 [get_pins {io_pmod_jb[0]}]
+set_property PACKAGE_PIN U20 [get_pins {io_pmod_jb[1]}]
+set_property PACKAGE_PIN V20 [get_pins {io_pmod_jb[2]}]
+set_property PACKAGE_PIN W20 [get_pins {io_pmod_jb[3]}]
+set_property PACKAGE_PIN Y18 [get_pins {io_pmod_jb[4]}]
+set_property PACKAGE_PIN Y19 [get_pins {io_pmod_jb[5]}]
+set_property PACKAGE_PIN W18 [get_pins {io_pmod_jb[6]}]
+set_property PACKAGE_PIN W19 [get_pins {io_pmod_jb[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports io_pmod_jb*]

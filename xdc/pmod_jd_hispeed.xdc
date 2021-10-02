@@ -1,0 +1,10 @@
+# HI-Speed
+set_property PACKAGE_PIN T14 [get_pins {io_pmod_jd[0]}]
+set_property PACKAGE_PIN T15 [get_pins {io_pmod_jd[1]}]
+set_property PACKAGE_PIN P14 [get_pins {io_pmod_jd[2]}]
+set_property PACKAGE_PIN R14 [get_pins {io_pmod_jd[3]}]
+set_property PACKAGE_PIN U14 [get_pins {io_pmod_jd[4]}]
+set_property PACKAGE_PIN U15 [get_pins {io_pmod_jd[5]}]
+set_property PACKAGE_PIN V17 [get_pins {io_pmod_jd[6]}]
+set_property PACKAGE_PIN V18 [get_pins {io_pmod_jd[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports io_pmod_jd*]
