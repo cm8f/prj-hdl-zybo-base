@@ -10,6 +10,8 @@ SDK/RemoteSystemsTempFiles/**
 **/.srcs
 **/*webtalk*
 workspace/zybo_base_system/*
+workspace/zybo_grd/*
+workspace/zybo_psonly/*
 vitis/standalone/zybo_platform/*
 vitis/standalone/zybo_standalone_*/*
 vitis/freeRTOS/zybo_platform/*
