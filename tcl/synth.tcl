@@ -1,44 +1,3 @@
-source ./common.tcl
-
-# synthesis settings
-set SYNTH_ARGS ""
-append SYNTH_ARGS " " -flatten_hierarchy " " rebuilt " "
-append SYNTH_ARGS " " -gated_clock_conversion " " off " "
-append SYNTH_ARGS " " -bufg " {" 12 "} "
-append SYNTH_ARGS " " -fanout_limit " {" 10000 "} "
-append SYNTH_ARGS " " -directive " " Default " "
-append SYNTH_ARGS " " -fsm_extraction " " auto " "
-#append SYNTH_ARGS " " -keep_equivalent_registers " "
-append SYNTH_ARGS " " -resource_sharing " " auto " "
-append SYNTH_ARGS " " -control_set_opt_threshold " " auto " "
-#append SYNTH_ARGS " " -no_lc " "
-#append SYNTH_ARGS " " -shreg_min_size " {" 3 "} "
-append SYNTH_ARGS " " -shreg_min_size " {" 5 "} "
-append SYNTH_ARGS " " -max_bram " {" -1 "} "
-append SYNTH_ARGS " " -max_dsp " {" -1 "} "
-append SYNTH_ARGS " " -cascade_dsp " " auto " "
-append SYNTH_ARGS " " -verbose
-
-set DEFINES ""
-append DEFINES -verilog_define " " USE_DEBUG " "
-
-set TOP_MODULE "top_level"
-
-
-# build design 
-set_part $PART_NAME
-set_property target_language VHDL [current_project]
-# in case of bare minimum project
-read_vhdl -library work [ glob ../hdl/*.vhd ] 
-read_xdc [ glob ../xdc/*.xdc ] 
-
-source ../bd/base_system_ps_only.tcl 
-
-make_wrapper -files [get_files ./.srcs/sources_1/bd/base_system_ps_only/base_system_ps_only.bd] -top
-generate_target all [get_files ./.srcs/sources_1/bd/base_system_ps_only/base_system_ps_only.bd]
-#read_vhdl -library work [glob ./.srcs/sources_1/bd/base_system/hdl/*.vhd]
-
-
 # Synthesize Design
 eval "synth_design $DEFINES $SYNTH_ARGS -top $TOP_MODULE -part $PART_NAME"
 report_timing_summary -file $PROJ_DIR/${PROJ_NAME}_post_synth_tim.rpt
@@ -88,4 +47,3 @@ puts "Post Route WNS = $WNS"
 # Write out bitfile
 write_debug_probes -force $PROJ_DIR/${PROJ_NAME}_${BUILD_DATE}_${BUILD_TIME}_${WNS}ns.ltx
 write_bitstream -force $PROJ_DIR/${PROJ_NAME}_${BUILD_DATE}_${BUILD_TIME}_${WNS}ns.bit -bin_file
-
