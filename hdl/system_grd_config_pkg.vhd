@@ -7,4 +7,11 @@ PACKAGE project_config_pkg IS
   CONSTANT p_bd_grd             : INTEGER := 1;
   CONSTANT p_config_bd_version  : INTEGER := p_bd_grd;
 
+  CONSTANT p_use_hdmi           : INTEGER RANGE 0 TO 1 := 1;
+  CONSTANT p_use_pmod_a         : INTEGER RANGE 0 TO 1 := 1;
+  CONSTANT p_use_pmod_b         : INTEGER RANGE 0 TO 1 := 1;
+  CONSTANT p_use_pmod_c         : INTEGER RANGE 0 TO 1 := 1;
+  CONSTANT p_use_pmod_d         : INTEGER RANGE 0 TO 1 := 1;
+  CONSTANT p_use_pmod_e         : INTEGER RANGE 0 TO 1 := 1;
+
 END PACKAGE;
