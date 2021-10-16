@@ -4,22 +4,26 @@ set strategies  [ list "syn" "syn2bit" "opt2bit" "export_bitfile" "export_platfo
 
 if { $argc < 1 } {
   puts "No revision specified. "
-  puts "Usage: vivado -mode batch -source ./build.tcl -tclargs revision_name (strategy)"
+  puts "Usage: vivado -mode batch -source ./do_build.tcl -tclargs revision_name (strategy)"
   puts "Revision names are: $revisions" 
   puts "strategies are: $strategies"
   exit
 }
 
-if { $argc < 2 } {
-  set strategy "syn2bit"
-}
-if { $argc < 3 } {
+set strategy "syn2bit"
+if { $argc > 1 } {
   set strategy [lindex $argv 1]
 }
+set archive ""
+if { $argc > 2} {
+  set archive [lindex $argv 2]
+}
+puts $argc
+puts $strategy
 
 # Global Settings
 set PROJ_NAME [lindex $argv 0]
-set PROJ_DIR  "./$PROJ_NAME"
+set PROJ_DIR  "../workspace/$PROJ_NAME"
 set PART_NAME "xc7z010clg400-1"
 set TOP_MODULE "top_level"
 
@@ -30,6 +34,10 @@ set_property target_language VHDL [current_project]
 if { ![file exists $PROJ_DIR ]} {
   file mkdir $PROJ_DIR
 }
+
+#if { ![file exists $PROJ_DIR/../.temp ]} {
+#  file mkdir $PROJ_DIR/../.temp
+#}
 
 set DEFINES ""
 append DEFINES -verilog_define " " USE_DEBUG " "
@@ -79,26 +87,19 @@ if { [string compare $strategy "syn2bit"]==0 || [string compare $strategy "syn"]
   set build_date_hex  [ build_lib::misc::build_date_time_hex $build_date ]
   set build_time_hex  [ build_lib::misc::build_date_time_hex $build_time ]
   build_lib::version::version "./" $PROJ_NAME $build_date_hex $build_time_hex $git_rev
-  
-  read_vhdl -library work [ glob ../hdl/*.vhd ] 
-  #read_vhdl -vhdl2008 -library work "../hdl/top_level.vhd"
-  read_vhdl -vhdl2008 -library work "../workspace/${PROJ_NAME}_config_pkg.vhd"
-  read_vhdl -vhdl2008 -library work "../workspace/${PROJ_NAME}_build_pkg.vhd"
-  read_xdc [ glob ../xdc/*.xdc ] 
-  
-  # in case of bare minimum project
-  set_property  ip_repo_paths  {../hdl/lib/} [current_project]
-  update_ip_catalog
-  
-  set bd_list [glob -nocomplain "../bd/*.tcl"]
-  
-  foreach bd $bd_list {
-    source $bd
-    set base_name [file rootname [file tail $bd]]
-    generate_target all [get_files ./.srcs/sources_1/bd/${base_name}/${base_name}.bd] 
-    make_wrapper -files [get_files ./.srcs/sources_1/bd/${base_name}/${base_name}.bd] -top
+
+  set lrepos [ list "../hdl/lib/" ]
+  set lbd    [ glob ../bd/*.tcl ]
+  set lxdc   [ glob ../xdc/*.xdc ] 
+  set lhdl   [ glob ../hdl/*.vhd ] 
+  lappend lhdl "../workspace/${PROJ_NAME}_config_pkg.vhd"
+  lappend lhdl "../workspace/${PROJ_NAME}_build_pkg.vhd"
+
+  build_lib::xilinx::read_sources $lhdl $lxdc $lrepos $lbd
+
+  if { [string compare $archive "zip" ]==0 || [string compare $archive "zip_post"]==0 } {
+    build_lib::xilinx::archive $PROJ_DIR $PROJ_NAME $build_date $build_time
   }
-  
   if { [string compare $strategy "syn2bit"]==0 } {
     build_lib::xilinx::syn2bit $PROJ_DIR $PROJ_NAME $build_date $build_time $TOP_MODULE $DEFINES $SYNTH_ARGS $PART_NAME
   } 
